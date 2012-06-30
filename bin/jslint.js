@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
-var linter = require("../lib/linter");
+var linter;
 var reporter = require("../lib/reporter");
 var nopt = require("nopt");
 var fs = require("fs");
+var util = require("util");
 
 function commandOptions() {
     'use strict';
@@ -13,7 +14,7 @@ function commandOptions() {
             'newcap', 'node', 'nomen', 'on', 'passfail', 'plusplus',
             'properties', 'regexp', 'rhino', 'undef', 'unparam',
             'sloppy', 'stupid', 'sub', 'vars', 'white', 'widget', 'windows',
-            'json', 'color', 'terse', 'quiet'
+            'json', 'color', 'terse', 'quiet', 'update'
         ],
         commandOpts = {
             'indent' : Number,
@@ -43,10 +44,13 @@ function die(why) {
     process.exit(1);
 }
 
-if (!totalFiles) {
-    die("No files specified.");
+if (parsed.update) {
+    util.print("updating... ");
+    var update = require('../lib/update.js');
+    update.getJSLint(main);
+} else {
+    main();
 }
-
 
 // If there are no more files to be processed, exit with the value 1
 // if any of the files contains any lint.
@@ -91,4 +95,15 @@ function lintFile(file) {
     });
 }
 
-parsed.argv.remain.forEach(lintFile);
+function main() {
+    linter = require("../lib/linter");
+    if (parsed.update) {
+       console.log("done");
+       if (!totalFiles) {
+           process.exit(0);
+       }
+    } else if (!totalFiles) {
+        die("No files specified.");
+    }
+    parsed.argv.remain.forEach(lintFile);
+}

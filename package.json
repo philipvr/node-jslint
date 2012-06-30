@@ -1,18 +1,19 @@
 {
     "name": "jslint",
     "description": "The JavaScript Code Quality Tool",
-    "homepage": "https://github.com/reid/node-jslint",
+    "homepage": "https://github.com/philipvr/node-jslint",
     "keywords": [
         "lint"
     ],
-    "version": "0.1.8",
+    "version": "0.1.9",
     "author" : "Reid Burke <me@reidburke.com>",
     "contributors": [
         "Douglas Crockford <douglas@crockford.com>",
         "Mikeal Rogers <mikeal.rogers@gmail.com>",
         "Adam Moore",
         "Luke Smith <lsmith@yahoo-inc.com>",
-        "Anders Conbere <aconbere@gmail.com>"
+        "Anders Conbere <aconbere@gmail.com>",
+	"Philip Van Ruitenbeek <philipvr@gmail.com>"
     ],
     "bin": {
         "jslint": "./bin/jslint.js"
@@ -29,15 +30,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/reid/node-jslint.git"
+        "url": "git://github.com/philipvr/node-jslint.git"
     },
     "bugs": {
-        "url": "https://github.com/reid/node-jslint/issues"
+        "url": "https://github.com/philipvr/node-jslint/issues"
     },
     "licenses": [
         {
             "type": "Modified MIT / BSD",
-            "url": "https://github.com/reid/node-jslint/blob/master/LICENSE"
+            "url": "https://github.com/philipvr/node-jslint/blob/master/LICENSE"
         }
     ]
 }
