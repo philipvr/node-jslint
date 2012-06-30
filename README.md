@@ -6,7 +6,7 @@ Easily use [JSLint][] from the command line.
 
 ## Install
 
-    npm install jslint
+    sudo make install
 
 ## Self-Lint
 
