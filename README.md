@@ -7,7 +7,7 @@ Easily use [JSLint][] from the command line.
 ## Install
 
     sudo make install
-    jslint --update # Download the lastest jslint.js file from [jslint.com](http://jslint.com/)
+    jslint --update # Download the lastest jslint.js file from jslint.com
 
 ## Self-Lint
 
