@@ -7,7 +7,7 @@ Easily use [JSLint][] from the command line.
 ## Install
 
     sudo make install
-    jslint --update # Download the lastest jslint.js file from jslint.com
+    sudo jslint --update # Download the lastest jslint.js file from jslint.com
 
 ## Self-Lint
 
@@ -29,15 +29,15 @@ Defaults to true, but you can specify false
 
 Pass arrays
 
-	jslint --predef $ --predef Backbone app.js
+    jslint --predef $ --predef Backbone app.js
 
 Control output with --terse (one line output) and --quiet (show errors only)
 
-	jslint --terse --quiet app.js
+    jslint --terse --quiet app.js
 
 JSLint your entire project
 
-	find . -name "*.js" -print0 | xargs -0 jslint
+    find . -name "*.js" -print0 | xargs -0 jslint
 
 ## License
 

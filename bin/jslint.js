@@ -44,14 +44,6 @@ function die(why) {
     process.exit(1);
 }
 
-if (parsed.update) {
-    util.print("updating... ");
-    var update = require('../lib/update.js');
-    update.getJSLint(main);
-} else {
-    main();
-}
-
 // If there are no more files to be processed, exit with the value 1
 // if any of the files contains any lint.
 var maybeExit = (function () {
@@ -95,15 +87,25 @@ function lintFile(file) {
     });
 }
 
-function main() {
+var main = function main() {
+    'use strict';
     linter = require("../lib/linter");
     if (parsed.update) {
-       console.log("done");
-       if (!totalFiles) {
-           process.exit(0);
-       }
+        console.log("done");
+        if (!totalFiles) {
+            process.exit(0);
+        }
     } else if (!totalFiles) {
         die("No files specified.");
     }
     parsed.argv.remain.forEach(lintFile);
 }
+
+if (parsed.update) {
+    util.print("updating... ");
+    var update = require('../lib/update.js');
+    update.getJSLint(main);
+} else {
+    main();
+}
+
