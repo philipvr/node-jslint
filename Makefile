@@ -5,7 +5,7 @@ install:
 	npm i . -g
 
 lint:
-	find bin lib jslint -name "*.js" -print0 | xargs -0 node ./bin/jslint.js --stupid
+	find bin lib -name "*.js" -print0 | xargs -0 node ./bin/jslint.js --stupid
 
 update:
 	node ./bin/jslint.js --update
